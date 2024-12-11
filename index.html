@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Psychology</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Roboto+Flex:opsz,wdth,wght,GRAD@8..144,85.4,100..1000,-86&display=swap" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/c015408acf4f9d898f4ca5db5e068f27?family=snoot.org+pixel10+V1" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: #0055FF;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        @keyframes colorCycle {
+            0%, 50% {
+                color: #0055FF;
+            }
+            25% {color: white;}
+            75% {color: white;}
+        }
+
+        .floating-text-box {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid black;
+            border-radius: 10px;
+            color: black;
+            padding: 10px;
+            z-index: 8;
+            animation: fadeInOut 4s ease-in-out forwards;
+            pointer-events: none;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: scale(0.9); }
+            25%, 75% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1.1); }
+        }
+
+
+        .text-top {
+            margin-top: -50px;
+            margin-left: -12px;
+            transform: scaleY(-1);
+            font-size: 140pt;
+            font-family: 'Pixelify Sans', sans-serif;
+            text-align: left;
+            z-index: 10; 
+            color: #0055FF;
+            animation: colorCycle 4s infinite;
+        }
+         .wrapper {
+             position: absolute;
+             left: 50%;
+             top: 50%;
+             transform: translate(-50%, -50%);
+             width: 235px;
+             height: 70px;
+             white-space: nowrap;
+        }
+         .focus {
+             position: absolute;
+             transform: translateY(-0%);
+             font-family: 'Pixelify Sans', sans-serif;
+             filter: blur(5px);
+             font-size: 150px;
+             opacity: 0.6;
+             top: 5px;
+             left: 33px;
+             color: #fff;
+        }
+         .mask {
+             position: absolute;
+             left: 30px;
+             top: 0px;
+             color: #fff;
+             padding: 5px;
+             transform: translateX(0);
+             box-sizing: border-box;
+             animation: mask 3.5s ease infinite alternate;
+             font-family: 'Pixelify Sans', sans-serif;
+             font-size: 150px;
+             clip: rect(0px, 300px, 200px, 0px);
+             background: linear-gradient(#fff, #fff 0) no-repeat, linear-gradient(to right, #fff, #fff 0) no-repeat, linear-gradient(to right, #fff, #fff 0) bottom left no-repeat, linear-gradient(to right, #fff, #fff 0) bottom left no-repeat, linear-gradient(#fff, #fff 0) bottom right no-repeat, linear-gradient(#fff, #fff 0) bottom right no-repeat, linear-gradient(#fff, #fff 0) top right no-repeat, linear-gradient(#fff, #fff 0) top right no-repeat;
+             background-size: 10px 2px, 2px 10px, 2px 10px, 10px 2px, 2px 10px, 10px 2px, 10px 2px, 2px 10px, 10px 2px;
+             
+        }
+         .text {
+             transform: translateX(0);
+             animation: text 3.5s ease infinite alternate;
+        }
+         @keyframes mask {
+             to {
+                 transform: translateX(1200px);
+            }
+        }
+         @keyframes text {
+             to {
+                 transform: translateX(-1200px);
+            }
+        }
+ 
+
+        .text-bottom {
+            font-size: 140pt;
+            font-family: 'Pixelify Sans', sans-serif;
+            text-align: left;
+            margin-top: -50px;
+            margin-left: -12px;
+            z-index: 4; 
+            bottom: -50px;
+            position: absolute;
+            overflow: hidden;
+            white-space: nowrap; 
+            width: 0; 
+            animation: typing 4s steps(50) 1s forwards;
+        }
+
+        .text-bottom::after {
+            content: ''; 
+            display: inline-block;
+            width: 6px; 
+            background-color: red; 
+            animation: blink 0.75s step-end infinite; 
+            position: absolute;
+            top: 0;
+            right: 0; 
+        }
+
+        @keyframes typing {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                background-color: transparent; 
+            }
+            100% {
+                background-color: red; 
+            }
+        }
+
+        @keyframes colorCycle {0%, 50% {
+        color: #0055FF;}
+      25% {color: white;}
+      75% {color: white;}
+    }
+
+
+
+        .text-container {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'snoot.org pixel10', sans-serif;
+            height: 100%;
+            margin-top: -130px;
+            z-index: 2; 
+            pointer-events: none;
+        }
+
+        .text-left {
+            font-size: 31pt;
+            letter-spacing: -10.5px;
+            line-height: 55px;
+            margin-left: -5px;
+            text-align: left;
+            pointer-events: auto;
+            white-space: pre-wrap; 
+            overflow: hidden;
+
+        }
+        .text-middle {
+            font-size: 31pt;
+            letter-spacing: -10.5px;
+            line-height: 55px;
+            margin-left: 500px;
+            text-align: left;
+            pointer-events: auto;
+            white-space: pre-wrap; 
+            overflow: hidden;
+        }
+        .text-right {
+            font-size: 31pt;
+            letter-spacing: -10.5px;
+            line-height: 55px;
+            text-align: right;
+            pointer-events: auto;
+            white-space: pre-wrap; 
+            overflow: hidden;
+        }
+
+        .image-container {position: absolute;
+            width: 500px;
+            height: 650px;
+            right: 70px;
+             bottom: 100px;
+             
+            
+        }
+        .image-container img {position: absolute;
+      z-index: 10;
+      top: 0; 
+      left: 0;
+      width: 200px;
+      height: auto;
+      object-fit: contain;
+      transition: transform 0.3s ease; 
+        }
+        .image-container::before {
+          content: '';
+          position: fixed;
+          top: 0px;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #0055FF;
+          z-index: 9; 
+          opacity: 0; 
+          pointer-events: none; 
+        }
+        .image-container:hover img {
+      transform: scale(1.1); 
+        }
+        .image-container:hover::before {
+          opacity: 1; 
+        }
+
+        .image {
+            position: absolute;
+            z-index: 0;
+        }
+        .sea {
+            position: absolute;
+            width: 86%;
+            height: auto;
+            z-index: -1;
+            filter: blur(4px);
+        }
+        .sea-1 {
+            position: absolute;
+            height: auto;
+            z-index: -2;
+            filter: blur(4px);
+        }
+        .bigleaf {
+            position: absolute;
+            height: auto;
+            z-index: -3;
+        }
+        .house-0 {
+            position: absolute;
+            height: auto;
+            z-index: 0;
+        }
+        .house_1 {
+            position: absolute;
+            height: auto;
+            z-index: 1;
+        }
+        .house_3 {
+            position: absolute;
+            height: auto;
+            z-index: 3;
+        }
+        .house_2 {
+            position: absolute;
+            height: auto;
+            z-index: 2;
+        }
+        .house_blur {
+            position: absolute;
+            height: auto;
+            z-index: 1;
+            filter: blur(3px) !important;
+            transition: filter 0.3s ease;
+        }
+        .house_blur:hover {
+            filter: blur(0) !important;
+        }
+
+
+        .paper {
+            position: absolute;
+            width: 15%;
+            height: auto;
+            z-index: 0;
+        }
+        .wave {
+            position: absolute;
+            width: 12%;
+            height: auto;
+            z-index: 0;
+        }
+        .wave-2 {
+            position: absolute;
+            width: 12%;
+            height: auto;
+            z-index: -1;
+        }
+        .tree_1 {
+            position: absolute;
+            width: 6%;
+            height: auto;
+            z-index: 1;
+            opacity: 0; 
+            transition: opacity 0s ease;         
+        }
+        .tree_5 {
+            position: absolute;
+            width: 6%;
+            height: auto;
+            z-index: 5;
+            opacity: 0; 
+            transition: opacity 0s ease;         
+        }
+        .box {
+            position: absolute;
+            width: 6%;
+            height: auto;
+            z-index: 0;
+            opacity: 0; 
+            transition: opacity 0s ease;
+        }
+        .seaweed {
+            position: absolute;
+            width: 6%;
+            height: auto;
+            z-index: 5;
+        }
+        .cactus {
+            position: absolute;
+            width: 4.5%;
+            height: auto;
+            z-index: 3;
+        }
+        .cactus-2 {
+            position: absolute;
+            width: 4.5%;
+            height: auto;
+            z-index: 6;
+        }
+        .poly {
+            position: absolute;
+            width: 6%;
+            height: auto;
+            z-index: 1;
+            opacity: 0; 
+            transition: opacity 0.5s ease;
+        }
+        .left_1 {
+            position: absolute;
+            width: 6%;
+            height: auto;
+            z-index: 1;
+            opacity: 0; 
+            transition: opacity 0.5s ease;
+        }
+        .middle_5 {
+            position: absolute;
+            width: 6%;
+            height: auto;
+            z-index: 5;
+        }
+        .middle_1 {
+            position: absolute;
+            width: 6%;
+            height: auto;
+            z-index: 1;
+        }
+        .middle_4 {
+            position: absolute;
+            width: 6%;
+            height: auto;
+            z-index: 4;
+        }
+        .right_7 {
+            position: absolute;
+            width: 6%;
+            height: auto;
+            z-index: 7;
+        }
+        .right_4 {
+            position: absolute;
+            width: 6%;
+            height: auto;
+            z-index: 4;
+        }
+        .right_8 {
+            position: absolute;
+            width: 6%;
+            height: auto;
+            z-index: 8;
+        }
+
+
+        .talk {
+            position: absolute;
+            border: 1.5px solid #000;
+            border-radius: 10px;
+            background-color: white; 
+            opacity: 0.7;
+        }
+        .talk-2 {
+            position: absolute;
+            border: 1.5px solid #000;
+            border-radius: 10px;
+            background-color: white; 
+            opacity: 0.7;
+            z-index: 8;
+        }
+
+        
+
+
+    </style>
+</head>
+<body>
+    <div class="focus">Dream Psychology</div>
+  <div class="mask">
+    <div class="text">Dream Psychology</div>
+  </div>
+
+    <div class="text-top">Dream Psychology</div>
+
+    <div class="text-container">
+        <div class="text-left"></div>
+        <div class="text-middle"></div>
+        <div class="text-right"></div>
+    </div>
+
+    <div class="text-bottom">Dream Psychology</div>
+
+<!-- sea -->
+    <img src="sea.jpg" class="sea" style="top: 20%; left: 15%;">
+    <img src="sea_1.jpg" class="sea-1" style="top: 15%; left: 5%;">
+    <img src="sea_2.jpg" class="sea-1" style="top: -1%; left: 20%;">
+    <img src="sea_3.jpg" class="sea-1" style="top: -1%; left: -1.5%;">
+    <img src="sea_4.jpg" class="sea-1" style="top: 2%; left: 80%;">
+    <img src="wave_1.jpg" class="wave" style="top: 20%; left: 0%;">
+    <img src="wave_1.jpg" class="wave" style="width: 16%; top: 22%; left: 8%;">
+
+    <img src="blacksea_1.jpg" class="wave" style="width: 16%; top: 18%; left: 39%;">
+    <img src="blacksea_2.jpg" class="wave" style="width: 13%; top: 19%; left: 39%;">
+    <img src="blacksea_3.jpg" class="wave-2" style="width: 10%; top: 27%; left: 49%;">
+
+    <img src="sky.jpg" class="wave-2" style="width: 9%; top: 23%; left: 67%;">
+
+    <img src="bigleaf.jpg" class="bigleaf" style="width: 13%; top: 15%; left: 39%;">
+
+<!-- house -->
+    <img src="house_1.png" class="house_blur" style="width: 9%; top: 16%; left: 32%;">
+    <img src="house_2.png" class="house_1" style="width: 11%; top: 92%; left: 40%;">
+    <img src="house_3.png" class="house_blur" style="width: 7%;top: 50%; left: 31%;">
+    <img src="house_4.png" class="house_1" style="width: 11%;top: 29%; left: 53%;">
+    <img src="house_5.png" class="house_blur" style="width: 7%;top: 33%; left: 47%;">
+    <img src="house_6.png" class="house_3" style="width: 7%;top: 40%; left: 39%;">
+    <img src="house_7.png" class="house_3" style="width: 7%;top: 51%; left: 44%;">
+    <img src="house_8.png" class="house_3" style="width: 10%;top: 82%; left: 47%;">
+    <img src="house_9.png" class="house_3" style="width: 15%;top: 85%; left: 30%;">
+    <img src="house_10.png" class="house_1" style="width: 6%;top: 79%; left: 35%;">
+    <img src="house_11.png" class="house_1" style="width: 10%;top: 70%; left: 39%;">
+    <img src="house_12.png" class="house_3" style="width: 6%;top: 58%; left: 37%;">
+    <img src="house_13.png" class="house_blur" style="width: 6%;top: 70%; left: 50%;">
+    <img src="house_14.png" class="house_1" style="width: 6%;top: 70%; left: 55%;">
+    <img src="house_15.png" class="house_3" style="width: 4%;top: 59%; left: 50%;">
+    <img src="house_16.png" class="house_1" style="width: 9%;top: 30%; left: 65%;">
+
+
+
+
+    <img src="paper_1.jpg" class="paper" style="top: 25%; left: -4%;">
+    <img src="paper_2.jpg" class="paper" style="width: 29%;top: 84%; left: 50%;">
+    <img src="paper_3.jpg" class="paper" style="width: 24%;top: -4%; left: 80%; opacity: 0.5;">
+
+
+
+
+    <img src="tree_1.jpg" class="tree_5" style="width: 8%; top: 95%; left: 15%;">
+    <img src="tree_2.jpg" class="tree_5" style="width: 5%; top: 86%; left: 13%;">
+    <img src="tree_3.jpg" class="tree_5" style="width: 2%; top: 81.5%; left: 11%;">
+    <img src="tree_4.jpg" class="tree_5" style="width: 4%; top: 81%; left: 18%;">
+    <img src="tree_5.jpg" class="tree_5" style="width: 1.5%; top: 83%; left: 20.5%;">
+    <img src="tree_6.jpg" class="tree_1" style="width: 4%; top: 72%; left: 15%;">
+    <img src="tree_7.jpg" class="tree_1" style="width: 4%; top: 72%; left: 12%;">
+    <img src="tree_8.jpg" class="tree_1" style="width: 4%; top: 63.5%; left: 17%;">
+    <img src="tree_9.jpg" class="tree_1" style="width: 2%; top: 35%; left: 20%;">
+    <img src="tree_10.jpg" class="tree_1" style="width: 2%; top: 59.5%; left: 15%;">
+    <img src="tree_11.jpg" class="tree_1" style="width: 2%; top: 31%; left: 13%;">
+    <img src="tree_12.jpg" class="tree_1" style="width: 2%; top: 35%; left: 16%;">
+    <img src="tree_13.jpg" class="tree_1" style="width: 2%; top: 39%; left: 18%;">
+    <img src="tree_14.jpg" class="tree_1" style="width: 2%; top: 43%; left: 16%;">
+    <img src="tree_15.jpg" class="tree_1" style="width: 2%; top: 47%; left: 18%;">
+    <img src="leaf_1.jpg" class="tree_1" style="width: 2%; top: 31%; left: 18%;">
+    <img src="leaf_1.jpg" class="tree_1" style="width: 2%; top: 27%; left: 16%;">
+    <img src="leaf_1.jpg" class="tree_1" style="width: 2%; top: 31%; left: 14%;">
+    <img src="leaf_1.jpg" class="tree_1" style="width: 2%; top: 27%; left: 12%;">
+    <img src="leaf_1.jpg" class="tree_1" style="width: 2%; top: 31%; left: 10%;">
+    <img src="leaf_1.jpg" class="tree_1" style="width: 2%; top: 27%; left: 8%;">
+    <img src="leaf_1.jpg" class="tree_1" style="width: 2%; top: 31%; left: 6%;">
+    <img src="leaf_1.jpg" class="tree_1" style="width: 2%; top: 35%; left: 22%;">
+    <img src="leaf_1.jpg" class="tree_1" style="width: 2%; top: 27%; left: 20%;">
+    <img src="leaf_1.jpg" class="tree_1" style="width: 2%; top: 23%; left: 18%;">
+    <img src="leaf_1.jpg" class="tree_1" style="width: 2%; top: 19%; left: 16%;">
+    <img src="leaf_1.jpg" class="tree_1" style="width: 2%; top: 19%; left: 28%;">
+    <img src="leaf_1.jpg" class="tree_1" style="width: 2%; top: 23%; left: 26%;">
+    <img src="leaf_1.jpg" class="tree_1" style="width: 2%; top: 27%; left: 24%;">
+    <img src="leaf_1.jpg" class="tree_1" style="width: 2%; top: 39%; left: 24%;">
+    <img src="leaf_1.jpg" class="tree_1" style="width: 2%; top: 39%; left: 20%;">
+    <img src="leaf_1.jpg" class="tree_1" style="width: 2%; top: 43%; left: 22%;">
+    <img src="leaf_1.jpg" class="tree_1" style="width: 2%; top: 15%; left: 22%;">
+    <img src="leaf_1.jpg" class="tree_1" style="width: 2%; top: 15%; left: 10%;">
+    <img src="leaf_1.jpg" class="tree_1" style="width: 2%; top: 19%; left: 8%;">
+    <img src="leaf_20.jpg" class="tree_1" style="width: 2%; top: 23%; left: 4%;">
+    <img src="leaf_20.jpg" class="tree_1" style="width: 2%; top: 48%; left: 26%;">
+    <img src="leaf_20.jpg" class="tree_1" style="width: 2%; top: 56%; left: 24%;">
+    <img src="leaf_20.jpg" class="tree_1" style="width: 2%; top: 56%; left: 22%;">
+
+
+    <img src="fish_1.jpg" class="tree_5" style="width: 2%; top: 84%; left: 22%;">
+    <img src="fish_2.jpg" class="tree_5" style="width: 2%; top: 88%; left: 24%;">
+    <img src="fish_3.jpg" class="tree_5" style="width: 2%; top: 88%; left: 20%;">
+    <img src="fish_4.jpg" class="tree_5" style="width: 2%; top: 80%; left: 24%;">
+
+
+<!-- pink box -->
+    <img src="pink.jpg" class="box" style="width: 2%; top: 19%; left: 20%;">
+    <img src="pink.jpg" class="box" style="width: 2%; top: 27%; left: 18%;">
+    <img src="pink.jpg" class="box" style="width: 2%; top: 63.5%; left: 15%;">
+    <img src="pink.jpg" class="box" style="width: 2%; top: 27%; left: 14%;">
+    <img src="pink.jpg" class="box" style="width: 2%; top: 15%; left: 14%;">
+
+<!-- seaweed -->
+    <img src="seaweed_1.png" class="seaweed" style="top: 83%; left: 10%;">
+    <img src="seaweed_2.png" class="left_1" style="width: 6%; top: 50%; left: 20%;">
+    <img src="pa.png" class="seaweed" style="width: 4%; top: 90%; left: 22%;">
+
+<!-- cactus -->
+    <img src="cactus_1.png" class="cactus" style="top: 21%; left: 6%;">
+    <img src="cactus_2.png" class="cactus-2" style="width: 3%; top: -3%; left: 42.5%;">
+    <img src="cactus_3.png" class="house-0" style="width: 4%; top: 50%; left: 57%;">
+
+
+    <img src="poly_1.png" class="poly" style="top: 30%; left: 10%;">
+    <img src="poly_2.png" class="poly" style="top: 65%; left: 18%;">
+    <img src="poly_3.png" class="poly" style="width: 5%; top: 47%; left: 12%;">
+
+<!-- left -->
+    <img src="ship.png" class="left_1" style="top: 40.7%; left: 10%;">
+    <img src="chair.png" class="left_1" style="width: 3%; top: 59%; left: 17%;">
+    <img src="bird_1.png" class="left_1" style="width: 3%; top: 70%; left: 15%;">
+    <img src="bird_2.png" class="left_1" style="width: 3%; top: 36%; left: 18%;">
+
+<!-- middle -->
+    <img src="tong.jpg" class="middle_5" style="width: 3.5%; top: 0%; left: 45%;">
+    <img src="hak.png" class="middle_4" style="width: 16%; top: 10%; left: 46%;">
+    <img src="minitree.png" class="middle_5" style="width: 2%; top: 20%; left: 45%;">
+    <img src="minitree.png" class="middle_5" style="width: 2%; top: 21%; left: 47%;">
+    <img src="minitree.png" class="middle_5" style="width: 2%; top: 22%; left: 49%;">
+    <img src="rock.png" class="house_1" style="width: 11%; top: 30%; left: 34%;">
+    <img src="minitong.jpg" class="house_1" style="width: 2%;top: 33%; left: 46%;">
+    <img src="minitong.jpg" class="house-0" style="width: 2%;top: 54%; left: 46%;">
+    <img src="minitree_2.png" class="middle_5" style="width: 6%; top: 77%; left: 44%;">
+    <img src="minitree_2.png" class="middle_4" style="width: 4%; top: 66%; left: 49%;">
+    <img src="plant_1.jpg" class="middle_5" style="width: 7%; top: 63%; left: 43%;">
+    <img src="plant_2.jpg" class="middle_1" style="width: 7%; top: 78%; left: 33%;">
+    <img src="plant_2.jpg" class="middle_1" style="width: 7%; top: 47%; left: 35%;">
+
+
+<!-- right -->
+  <div class="image-container">
+    <img src="girl.png" alt="Girl">
+  </div>
+    <img src="tong_2.jpg" class="right_4" style="width: 3.7%; top: 0%; left: 77%;">
+    <img src="car.png" class="right_4" style="width: 14%; top: 25%; left: 78%;">
+    <img src="air.png" class="right_4" style="width: 5%; top: 20%; left: 79%;">
+    <img src="bigtree.png" class="right_8" style="width: 9%; top: 70%; left: 77%;">
+    <img src="bigtree.png" class="right_8" style="width: 9%; top: 70%; left: 90%;">
+    <img src="bigtree.png" class="right_8" style="width: 9%; top: 70%; left: 87%;">
+    <img src="bigtree.png" class="right_8" style="width: 9%; top: 70%; left: 65%;">
+    <img src="doll.png" class="right_4" style="width: 9%; top: 79%; left: 60%;">
+    <img src="" class="right_8" style="width: 6%; top: 90%; left: 85%;">
+
+    <div class="talk-2" style="width: 190px; height: 40px; top: 60%; left: 79%;"></div>
+    <div class="talk" style="width: 100px; height: 30px; top: 65%; left: 67%;"></div>
+    <div class="talk" style="width: 100px; height: 30px; top: 55%; left: 63%;"></div>
+    <div class="talk" style="width: 100px; height: 30px; top: 55%; left: 78%;"></div>
+    <div class="talk-2" style="width: 100px; height: 30px; top: 40%; left: 66%;"></div>
+    <div class="talk-2" style="width: 100px; height: 30px; top: 43%; left: 68%;"></div>
+
+
+    <script>
+
+    document.querySelectorAll('.tree_1, .tree_5, .box, .poly, .left_1').forEach(tree => {
+    tree.addEventListener('mouseover', () => {
+        tree.style.opacity = '1'; /* 호버 시 보이도록 설정 */
+    });
+});
+
+    const messages = [
+        "이건 뭐지?",
+        "꿈이서는 뭐든 될 수 있어 그래서 우리는 꿈을 꿔야 해",
+        "주택. 주택. 주택.",
+        "이건 꿈이야",
+        "내가 무슨 말 하는지 모르겠지? 모두가 다 그래",
+        "여긴 어디지?",
+        "마구 쌓이는 게 좋잖아",
+        "넌 누구야?",
+        "꿈속의 나",
+        "아파트. 아파트. 아파트.",
+        "안녕?",
+        "종이접기처럼 인생을 접어서 마음에 드는 모양으로 만들자",
+        "식물. 식물. 식물."
+    ];
+
+    function createRandomBox() {
+        const box = document.createElement('div');
+        const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+        const randomX = Math.random() * window.innerWidth;
+        const randomY = Math.random() * window.innerHeight;
+
+        box.style.position = "absolute";
+        box.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
+        box.style.border = "1px solid rgba(0, 0, 0, 1)";
+        box.style.borderRadius = "10px";
+        box.style.padding = "6px";
+        box.style.color = "black";
+        box.style.zIndex = "8";
+        box.style.top = `${randomY}px`;
+        box.style.left = `${randomX}px`;
+        box.textContent = randomMessage;
+
+        document.body.appendChild(box);
+
+        setTimeout(() => {
+            box.remove();
+        }, 2000); // 2초 후 삭제
+    }
+
+    setInterval(createRandomBox, 500); // 1초 간격으로 박스 생성
+
+
+    /* left text ani */
+       
+        // 타이핑 애니메이션을 위한 데이터
+const typingData = [
+    {
+        target: document.querySelector('.text-left'),
+        content: `DRAG
+DRAGDRAG
+DRAG
+DRAG
+DRAG
+DRAG
+DRAGDRAG
+DRAGDRAG
+DRAGDRAG
+DRAGDRAG
+DRAGDRAGDRAGDRAG
+DRAGDRAGDRAGDRAGDRA
+GDRAGDRAG`,
+        speed: 10, // 생성 속도
+        eraseSpeed: 10, // 삭제 속도
+    },
+    {
+        target: document.querySelector('.text-middle'),
+        content: `DROP
+DROPDROPDRAG
+DROPDROP
+
+DROP
+DRAOPROP
+DROPDRAOPRAOPROPDROPDROP
+DROPDROPDROPDROP
+DROPDROPDROP
+DROPDROPDROP`,
+        speed: 15, // 생성 속도
+        eraseSpeed: 15, // 삭제 속도
+    },
+    {
+        target: document.querySelector('.text-right'),
+        content: `NESTING
+NESTINGNESTING
+NESTINGNESTING
+NESTING
+NESTINGNESTING
+NESTINGNESTINGNESTING
+NESTINGNESTINGNESTING
+NESTING
+NESTINGNESTING`,
+        speed: 10, // 생성 속도
+        eraseSpeed: 10, // 삭제 속도
+    },
+];
+
+// 타이핑 함수
+function typeText(target, content, speed, eraseSpeed, index = 0, isErasing = false) {
+    if (!isErasing && index < content.length) {
+        // 텍스트 생성 중
+        target.textContent = content.substring(0, index + 1); // 텍스트 갱신
+        setTimeout(() => typeText(target, content, speed, eraseSpeed, index + 1, false), speed);
+    } else if (isErasing && index > 0) {
+        // 텍스트 삭제 중
+        target.textContent = content.substring(0, index - 1); // 텍스트 갱신
+        setTimeout(() => typeText(target, content, speed, eraseSpeed, index - 1, true), eraseSpeed);
+    } else if (index === 0 && isErasing) {
+        // 텍스트가 모두 삭제되었을 때, 다시 생성 시작
+        setTimeout(() => typeText(target, content, speed, eraseSpeed, 0, false), 1000);
+    } else if (index === content.length) {
+        // 텍스트가 모두 생성되었을 때, 삭제 시작
+        setTimeout(() => typeText(target, content, speed, eraseSpeed, index, true), 1000);
+    }
+}
+
+// 각 요소에 대해 타이핑 및 삭제 애니메이션 실행
+typingData.forEach(({ target, content, speed, eraseSpeed }) => {
+    typeText(target, content, speed, eraseSpeed);
+});
+
+
+
+
+    </script> 
+
+
+
+
+
+</body>
+</html>

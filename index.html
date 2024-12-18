@@ -21,6 +21,44 @@
             overflow: hidden;
         }
 
+        .intro {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #0055FF;
+            z-index: 11;
+            animation: quickBlink 0.2s ease-in-out 7, stayBlue 2s ease-in-out 0.4s 1 forwards, fadeOut 1.5s ease-in-out 2.4s forwards;
+        }
+
+        @keyframes quickBlink {
+            0%, 100% {
+                opacity: 1; 
+            }
+            50% {
+                opacity: 0.5; 
+            }
+        }
+
+        @keyframes stayBlue {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
         @keyframes colorCycle {
             0%, 50% {
                 color: #0055FF;
@@ -28,7 +66,6 @@
             25% {color: white;}
             75% {color: white;}
         }
-
         .floating-text-box {
             position: absolute;
             background: rgba(255, 255, 255, 0.1);
@@ -46,8 +83,6 @@
             25%, 75% { opacity: 1; transform: scale(1); }
             100% { opacity: 0; transform: scale(1.1); }
         }
-
-
         .text-top {
             margin-top: -50px;
             margin-left: -12px;
@@ -55,9 +90,10 @@
             font-size: 140pt;
             font-family: 'Pixelify Sans', sans-serif;
             text-align: left;
-            z-index: 10; 
+            z-index: 11; 
             color: #0055FF;
             animation: colorCycle 4s infinite;
+            pointer-events: none; 
         }
          .wrapper {
              position: absolute;
@@ -99,17 +135,18 @@
              transform: translateX(0);
              animation: text 3.5s ease infinite alternate;
         }
+
          @keyframes mask {
              to {
                  transform: translateX(1200px);
             }
         }
+
          @keyframes text {
              to {
                  transform: translateX(-1200px);
             }
         }
- 
 
         .text-bottom {
             font-size: 140pt;
@@ -124,6 +161,7 @@
             white-space: nowrap; 
             width: 0; 
             animation: typing 4s steps(50) 1s forwards;
+            pointer-events: none;
         }
 
         .text-bottom::after {
@@ -135,6 +173,7 @@
             position: absolute;
             top: 0;
             right: 0; 
+            pointer-events: none;
         }
 
         @keyframes typing {
@@ -160,9 +199,6 @@
       25% {color: white;}
       75% {color: white;}
     }
-
-
-
         .text-container {
             display: flex;
             justify-content: space-between;
@@ -172,7 +208,6 @@
             z-index: 2; 
             pointer-events: none;
         }
-
         .text-left {
             font-size: 31pt;
             letter-spacing: -10.5px;
@@ -182,7 +217,7 @@
             pointer-events: auto;
             white-space: pre-wrap; 
             overflow: hidden;
-
+            pointer-events: none;
         }
         .text-middle {
             font-size: 31pt;
@@ -193,6 +228,7 @@
             pointer-events: auto;
             white-space: pre-wrap; 
             overflow: hidden;
+            pointer-events: none;
         }
         .text-right {
             font-size: 31pt;
@@ -202,6 +238,7 @@
             pointer-events: auto;
             white-space: pre-wrap; 
             overflow: hidden;
+            pointer-events: none;
         }
 
         .image-container {position: absolute;
@@ -209,8 +246,6 @@
             height: 650px;
             right: 70px;
              bottom: 100px;
-             
-            
         }
         .image-container img {position: absolute;
       z-index: 10;
@@ -268,37 +303,161 @@
             z-index: 0;
         }
         .house_1 {
+            cursor: grab;
+            user-select: none;
             position: absolute;
             height: auto;
             z-index: 1;
         }
         .house_3 {
+            cursor: grab;
+            user-select: none;
             position: absolute;
             height: auto;
             z-index: 3;
         }
         .house_2 {
+            cursor: grab;
+            user-select: none;
             position: absolute;
             height: auto;
             z-index: 2;
         }
         .house_blur {
+            cursor: grab;
+            user-select: none;
             position: absolute;
             height: auto;
             z-index: 1;
-            filter: blur(3px) !important;
+            filter: blur(3px);
             transition: filter 0.3s ease;
         }
         .house_blur:hover {
-            filter: blur(0) !important;
+            transform: scale(2);
+            filter: blur(0);
+            transition: transform 0.3s ease, filter 0.3s ease;
         }
 
+        .house_1:hover {
+            transform: scale(1.5);
+            transition: transform 0.3s ease;
+        }
 
+        .house_2:hover {
+            transform: scale(2);
+            transition: transform 0.3s ease;
+        }
+
+        .house_3:hover {
+            transform: scale(3);
+            transition: transform 0.3s ease;
+        }
+
+        .house_4:hover {
+            transform: scale(1.5);
+            transition: transform 0.3s ease;
+        }
+
+        .house_5:hover {
+            transform: scale(1.5);
+            transition: transform 0.3s ease;
+        }
+
+        .house_6:hover {
+            transform: scale(1.5);
+            transition: transform 0.3s ease;
+        }
+
+        .house_7:hover {
+            transform: scale(2);
+            transition: transform 0.3s ease;
+        }
+
+        .house_8:hover {
+            transform: scale(1.5);
+            transition: transform 0.3s ease;
+        }
+
+        .house_9:hover {
+            transform: scale(1.5);
+            transition: transform 0.3s ease;
+        }
+
+        .house_10:hover {
+            transform: scale(2);
+            transition: transform 0.3s ease;
+        }
+
+        .house_11:hover {
+            transform: scale(1.5);
+            transition: transform 0.3s ease;
+        }
+
+        .house_12:hover {
+            transform: scale(1.5);
+            transition: transform 0.3s ease;
+        }
+
+        .house_13:hover {
+            transform: scale(1.5);
+            transition: transform 0.3s ease;
+        }
+
+        .house_14:hover {
+            transform: scale(2);
+            transition: transform 0.3s ease;
+        }
+
+        .house_15:hover {
+            transform: scale(1.5);
+            transition: transform 0.3s ease;
+        }
+        .middle_4:hover {
+            transform: scale(2);
+            transition: transform 0.3s ease;
+        }
+        .middle_5:hover {
+            transform: scale(2);
+            transition: transform 0.3s ease;
+        }
+        .doll:hover {
+            transform: scale(4);
+            transition: transform 0.3s ease;
+        }
         .paper {
             position: absolute;
             width: 15%;
             height: auto;
             z-index: 0;
+            cursor: grab;
+            user-select: none;
+        }
+        .paper:active {
+             cursor: grabbing; 
+        }
+
+        .Me {
+            position: absolute;
+            height: auto;
+            z-index: 0;
+            cursor: grab;
+            user-select: none;
+            animation: rotateMe 10s linear infinite;
+        }
+        .Me2 {
+            position: absolute;
+            height: auto;
+            z-index: 0;
+            cursor: grab;
+            user-select: none;
+        }
+        @keyframes rotateMe {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                 transform: rotate(360deg);
+            }
         }
         .wave {
             position: absolute;
@@ -342,17 +501,51 @@
             height: auto;
             z-index: 5;
         }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0)
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        @keyframes bounce1 {
+            0%, 100% {
+                transform: translateY(0)
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        @keyframes bounce2 {
+            0%, 100% {
+                transform: translateY(0)
+            }
+            50% {
+                transform: translateX(-20px);
+            }
+        }
         .cactus {
             position: absolute;
             width: 4.5%;
             height: auto;
             z-index: 3;
+            animation: bounce 2s ease-in-out infinite;
         }
         .cactus-2 {
             position: absolute;
             width: 4.5%;
             height: auto;
             z-index: 6;
+            animation: bounce 1.5s ease-in-out infinite;
+        }
+        .car {
+            position: absolute;
+            width: 6%;
+            height: auto;
+            z-index: 4;
+            animation: bounce2 2s ease-in-out infinite;
         }
         .poly {
             position: absolute;
@@ -400,6 +593,12 @@
             height: auto;
             z-index: 4;
         }
+        .doll {
+            position: absolute;
+            width: 6%;
+            height: auto;
+            z-index: 4;
+        }
         .right_8 {
             position: absolute;
             width: 6%;
@@ -424,12 +623,11 @@
             z-index: 8;
         }
 
-        
-
 
     </style>
 </head>
 <body>
+    <div class="intro"></div>
     <div class="focus">Dream Psychology</div>
   <div class="mask">
     <div class="text">Dream Psychology</div>
@@ -481,13 +679,12 @@
     <img src="house_16.png" class="house_1" style="width: 9%;top: 30%; left: 65%;">
 
 
-
-
     <img src="paper_1.jpg" class="paper" style="top: 25%; left: -4%;">
     <img src="paper_2.jpg" class="paper" style="width: 29%;top: 84%; left: 50%;">
     <img src="paper_3.jpg" class="paper" style="width: 24%;top: -4%; left: 80%; opacity: 0.5;">
 
-
+    <img src="Me.png" class="Me2" style="width: 23%;top: 70%; left: 85%;">
+    <img src="Me.png" class="Me" style="width: 50%; top: -20%; left: -5%; opacity: 0.5;">
 
 
     <img src="tree_1.jpg" class="tree_5" style="width: 8%; top: 95%; left: 15%;">
@@ -586,13 +783,13 @@
     <img src="girl.png" alt="Girl">
   </div>
     <img src="tong_2.jpg" class="right_4" style="width: 3.7%; top: 0%; left: 77%;">
-    <img src="car.png" class="right_4" style="width: 14%; top: 25%; left: 78%;">
+    <img src="car.png" class="car" style="width: 14%; top: 25%; left: 78%;">
     <img src="air.png" class="right_4" style="width: 5%; top: 20%; left: 79%;">
     <img src="bigtree.png" class="right_8" style="width: 9%; top: 70%; left: 77%;">
     <img src="bigtree.png" class="right_8" style="width: 9%; top: 70%; left: 90%;">
     <img src="bigtree.png" class="right_8" style="width: 9%; top: 70%; left: 87%;">
     <img src="bigtree.png" class="right_8" style="width: 9%; top: 70%; left: 65%;">
-    <img src="doll.png" class="right_4" style="width: 9%; top: 79%; left: 60%;">
+    <img src="doll.png" class="doll" style="width: 9%; top: 79%; left: 60%;">
     <img src="" class="right_8" style="width: 6%; top: 90%; left: 85%;">
 
     <div class="talk-2" style="width: 190px; height: 40px; top: 60%; left: 79%;"></div>
@@ -607,7 +804,7 @@
 
     document.querySelectorAll('.tree_1, .tree_5, .box, .poly, .left_1').forEach(tree => {
     tree.addEventListener('mouseover', () => {
-        tree.style.opacity = '1'; /* 호버 시 보이도록 설정 */
+        tree.style.opacity = '1';
     });
 });
 
@@ -648,15 +845,12 @@
 
         setTimeout(() => {
             box.remove();
-        }, 2000); // 2초 후 삭제
+        }, 2000); 
     }
 
-    setInterval(createRandomBox, 500); // 1초 간격으로 박스 생성
+    setInterval(createRandomBox, 500); 
 
-
-    /* left text ani */
-       
-        // 타이핑 애니메이션을 위한 데이터
+// left text ani
 const typingData = [
     {
         target: document.querySelector('.text-left'),
@@ -673,8 +867,8 @@ DRAGDRAG
 DRAGDRAGDRAGDRAG
 DRAGDRAGDRAGDRAGDRA
 GDRAGDRAG`,
-        speed: 10, // 생성 속도
-        eraseSpeed: 10, // 삭제 속도
+        speed: 10, 
+        eraseSpeed: 10, 
     },
     {
         target: document.querySelector('.text-middle'),
@@ -688,8 +882,8 @@ DROPDRAOPRAOPROPDROPDROP
 DROPDROPDROPDROP
 DROPDROPDROP
 DROPDROPDROP`,
-        speed: 15, // 생성 속도
-        eraseSpeed: 15, // 삭제 속도
+        speed: 15, 
+        eraseSpeed: 15, 
     },
     {
         target: document.querySelector('.text-right'),
@@ -702,43 +896,102 @@ NESTINGNESTINGNESTING
 NESTINGNESTINGNESTING
 NESTING
 NESTINGNESTING`,
-        speed: 10, // 생성 속도
-        eraseSpeed: 10, // 삭제 속도
+        speed: 10, 
+        eraseSpeed: 10, 
     },
 ];
 
-// 타이핑 함수
+// typing
 function typeText(target, content, speed, eraseSpeed, index = 0, isErasing = false) {
     if (!isErasing && index < content.length) {
-        // 텍스트 생성 중
-        target.textContent = content.substring(0, index + 1); // 텍스트 갱신
+       
+        target.textContent = content.substring(0, index + 1); 
         setTimeout(() => typeText(target, content, speed, eraseSpeed, index + 1, false), speed);
     } else if (isErasing && index > 0) {
-        // 텍스트 삭제 중
-        target.textContent = content.substring(0, index - 1); // 텍스트 갱신
+        
+        target.textContent = content.substring(0, index - 1); 
         setTimeout(() => typeText(target, content, speed, eraseSpeed, index - 1, true), eraseSpeed);
     } else if (index === 0 && isErasing) {
-        // 텍스트가 모두 삭제되었을 때, 다시 생성 시작
+        
         setTimeout(() => typeText(target, content, speed, eraseSpeed, 0, false), 1000);
     } else if (index === content.length) {
-        // 텍스트가 모두 생성되었을 때, 삭제 시작
+        작
         setTimeout(() => typeText(target, content, speed, eraseSpeed, index, true), 1000);
     }
 }
 
-// 각 요소에 대해 타이핑 및 삭제 애니메이션 실행
+
 typingData.forEach(({ target, content, speed, eraseSpeed }) => {
     typeText(target, content, speed, eraseSpeed);
 });
 
+// drag and drop papers
+document.querySelectorAll('.paper').forEach(paper => {
+    let offsetX, offsetY, isDragging = false;
 
+    paper.addEventListener('mousedown', (e) => {
+        isDragging = true;
 
+        
+        offsetX = e.clientX - paper.getBoundingClientRect().left;
+        offsetY = e.clientY - paper.getBoundingClientRect().top;
 
+        paper.style.zIndex = 1000; 
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            
+            paper.style.left = `${e.clientX - offsetX}px`;
+            paper.style.top = `${e.clientY - offsetY}px`;
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        if (isDragging) {
+            isDragging = false;
+            paper.style.zIndex = '';
+        }
+    });
+});
+
+document.querySelectorAll('.house_1, .house_2, .house_3, .house_4, .house_5, .house_6, .house_7, .house_8, .house_9, .house_10, .house_11, .house_12, .house_13, .house_14, .house_15, .middle_4, .middle_5, .house_blur').forEach(house => {
+    let offsetX, offsetY, isDragging = false;
+
+    house.addEventListener('mousedown', (e) => {
+        isDragging = true;
+
+        offsetX = e.clientX - house.getBoundingClientRect().left;
+        offsetY = e.clientY - house.getBoundingClientRect().top;
+
+        house.style.zIndex = 1000;
+        e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            house.style.left = `${e.clientX - offsetX}px`;
+            house.style.top = `${e.clientY - offsetY}px`;
+            house.style.position = 'absolute';
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        if (isDragging) {
+            isDragging = false;
+            house.style.zIndex = '';
+        }
+    });
+});
+
+// intro 
+    document.addEventListener("DOMContentLoaded", () => {
+        const intro = document.querySelector('.intro');
+        
+        intro.addEventListener('animationend', () => {
+            intro.style.display = 'none';
+        });
+    });
     </script> 
-
-
-
-
-
 </body>
 </html>
